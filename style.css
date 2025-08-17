@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+/* FAQ Accordion Card Mobile Styles */
+
+
+body {
+  font-family: 'Kumbh Sans', sans-serif;
+  background: linear-gradient(180deg, hsl(273, 75%, 66%) 0%, hsl(240, 73%, 65%) 100%);
+  min-height: 105vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+/* FAQ Card Image Styles */
+
+.faq-card {
+  position: relative;
+  margin-top: -20%;
+}
+
+.faq-image {
+  position: absolute;
+  left: 50%;
+  top: -32px;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 180px; /* adjust as needed for your image */
+  z-index: 2;
+  pointer-events: none;
+}
+.faq-image img {
+  width: 100%;
+  max-width: 250px;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  top: 15px; /* 45px overlap, adjust for 45% of image height if needed */
+}
+
+.faq-card h1 {
+  color: hsl(238, 29%, 16%);
+  padding-top:30px;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.faq-accordion {
+  padding: 2.5rem 2.0rem 2.0rem 2.5rem;
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 1rem;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.1);
+  max-width: 350px;
+  width: 120%;
+  border-top: 1px solid hsl(240, 5%, 91%);
+  background: #fff;
+  margin-top: 90px; /* creates space for image overlap, adjust as needed */
+}
+
+.faq-accordion details {
+  border-bottom: 1px solid hsl(240, 5%, 91%);
+  padding: 1rem 0;
+}
+
+.faq-accordion summary {
+  color: hsl(237, 12%, 33%);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.faq-accordion details[open] summary {
+  color: hsl(14, 88%, 65%);
+}
+
+.faq-accordion p {
+  color: hsl(240, 6%, 50%);
+  font-size: 0.95rem;
+  margin: 0.5rem 0 0 0;
+  line-height: 1.6;
+}
+.arrow-icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: url('images/icon-arrow-down.svg') no-repeat center center;
+  background-size: contain;
+  margin-left: 1rem;
+  transition: transform 0.4s ease;
+}
+
+details[open] .arrow-icon {
+  transform: rotate(180deg);
+}
+
+
+/* Hide default arrow */
+.faq-accordion summary::-webkit-details-marker {
+  display: none;
+}
+.faq-accordion summary::marker {
+  display: none;
+}
+
+
+/* Stack woman image above bg-pattern for shadow effect */
+.faq-image-stack {
+  position: relative;
+  width: 100%;
+  max-width: 250px;
+  margin: 0 auto;
+  height: 180px;
+}
+
+/* Image stacking for shadow effect */
+.woman-img {
+  position: absolute;
+  left: 45%;
+  top: 85%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 100%;
+  max-width: 250px;
+}
+.bg-pattern-img {
+  position: absolute;
+  left: 45%;
+  top: 145%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Desktop styles */
+@media (min-width: 900px) {
+  body {
+    min-height: 120vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(-90deg, hsl(273, 75%, 66%) 0%, hsl(240, 73%, 65%) 100%,);
+  }
+   .faq-accordion {
+    flex: 2 1 500px;
+    max-width: 500px;
+    margin-top: 0;
+    padding: 4rem 3rem 3rem 3rem;
+    border-radius: 2rem;
+    box-shadow: none;
+  }
+  .faq-card {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 1000px;
+    min-height: 700px;
+    width: 90%;
+    margin-top: 1%;
+    box-shadow: 0 2px 32px rgba(0,0,0,0.15);
+    border-radius: 2rem;
+    background: #fff;
+    padding: 0;
+  }
+
+  .faq-image-stack {
+    flex: 1 1 350px;
+    max-width: 650px;
+    height: 100%;
+    margin-top: 12%;
+    left: -3%;
+    background: url('images/illustration-woman-online-desktop.svg') no-repeat center right;
+    background-size: contain;
+    position: relative;
+    min-height: 400px;
+  }
+  .faq-image-stack::after {
+    content: '';
+    position: absolute;
+    background: url('images/bg-pattern-desktop.svg') no-repeat center center;
+    background-size: contain;
+    padding: 170px;
+    width: 350px;
+    height: 200px;
+    left: 50%;
+    top: -13%;
+    transform: translateX(-50%);
+    z-index: 1;
+    pointer-events: none;
+  }
+  /* Decorative box for desktop design */
+  .faq-image-stack::before {
+    content: '';
+    position: absolute;
+    background: url('images/illustration-box-desktop.svg') no-repeat center center;
+    background-size: contain;
+    width: 220px;
+    height: 220px;
+    left: -60px;
+    top: 140px;
+    z-index: 2;
+    pointer-events: none;
+  }
+ 
+  .faq-card h1 {
+    font-size: 2.0rem;
+    margin-bottom: 2rem;
+    padding-top: 0;
+  }
+  .faq-accordion details {
+    padding: 1.5rem ;
+  }
+  .faq-accordion summary {
+    font-size: 1.0rem;
+  }
+  .faq-accordion p {
+    font-size: 1.05rem;
+  }
+  img {
+    display: none;
+  }
+}
+.attribution {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 2rem;
+  color: hsl(240, 6%, 50%);
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
